@@ -25,6 +25,18 @@ module WechatGate
             <MediaId><![CDATA[#{body}]]></MediaId>
           </Voice>
         }
+      when :news
+        %Q{
+         <ArticleCount>#{body[:count]}</ArticleCount>
+          <Articles>
+            <item>
+              <Title><![CDATA[#{body[:title]}]]></Title>
+              <Description><![CDATA[#{body[:description]}]]></Description>
+              <PicUrl><![CDATA[#{body[:picurl]}]]></PicUrl>
+              <Url><![CDATA[#{body[:url]}]]></Url>
+            </item>
+          </Articles>
+        }
       when :video
         # body: { media_id: MEDIA_ID, title: TITLE, description: DESCRIPTION }
         %Q{
